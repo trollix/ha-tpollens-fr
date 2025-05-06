@@ -5,6 +5,6 @@ POLLENS_URL = "https://admindata.atmo-france.org/api/v2/data/indices/pollens"
 
 DEFAULT_ZONE = {
     "nom": "Pessac",
-    "code": "33318",
+    "code_zone": "33318",
     "codeEpci": "243300316"
 }

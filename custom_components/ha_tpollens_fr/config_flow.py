@@ -11,7 +11,7 @@ DATA_SCHEMA = vol.Schema({
     vol.Required("username"): str,
     vol.Required("password"): str,
     vol.Required("nom", default=DEFAULT_ZONE["nom"]): str,
-    vol.Required("code", default=DEFAULT_ZONE["code"]): str,
+    vol.Required("code_zone", default=DEFAULT_ZONE["code_zone"]): str,
     vol.Required("codeEpci", default=DEFAULT_ZONE["codeEpci"]): str,
 })
 
@@ -25,7 +25,7 @@ class ConfigFlow(config_entries.ConfigFlow, domain=DOMAIN):
                 "password": user_input["password"],
                 "zone": {
                     "nom": user_input["nom"],
-                    "code": user_input["code"],
+                    "code_zone": user_input["code_zone"],
                     "codeEpci": user_input["codeEpci"]
                 }
             })

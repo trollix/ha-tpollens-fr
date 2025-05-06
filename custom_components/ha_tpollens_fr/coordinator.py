@@ -24,7 +24,7 @@ class PollensCoordinator(DataUpdateCoordinator):
         if entry is not None:
             self.username = entry.data["username"]
             self.password = entry.data["password"]
-            self.zone = entry.data.get("zone", DEFAULT_ZONE)
+            self.zone = entry.data.get("code_zone", DEFAULT_ZONE)
         else:
             self.username = DEFAULT_ZONE.get("username")
             self.password = DEFAULT_ZONE.get("password")
