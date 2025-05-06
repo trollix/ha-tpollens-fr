@@ -12,20 +12,15 @@ Intégration Home Assistant pour afficher les indices polliniques français via 
 1. Ajoutez ce dépôt dans HACS
 2. Installez l'intégration
 3. Redémarrez Home Assistant
-4. Ajoutez une configuration YAML
+4. Allez dans Paramètres > Intégrations > Ajouter > "Pollens France"
 
-## Configuration YAML
+## Configuration via l'interface
 
-```yaml
-sensor:
-  - platform: ha_tpollens_fr
-    username: "votre_login"
-    password: "votre_mot_de_passe"
-    zone:
-      nom: "Pessac"
-      code: "33318"
-      codeEpci: "243300316"
-```
+Vous devrez fournir :
+
+- votre identifiant et mot de passe Atmo-France
+- le nom et le code de votre commune
+- le code EPCI associé
 
 ## Licence
 

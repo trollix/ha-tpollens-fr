@@ -1,11 +1,11 @@
 {
-    "domain": "ha_tpollens_fr",
-    "name": "TPollens FR",
-    "version": "0.1.4",
-    "documentation": "https://github.com/trollix/ha-tpollens-fr",
-    "requirements": [],
-    "dependencies": [],
-    "codeowners": ["@trollix"],
-    "iot_class": "cloud_polling",
-    "config_flow": false
+  "domain": "ha_tpollens_fr",
+  "name": "TPollens FR",
+  "version": "0.1.5",
+  "documentation": "https://github.com/trollix/ha-tpollens-fr",
+  "requirements": [],
+  "dependencies": [],
+  "codeowners": ["@trollix"],
+  "iot_class": "cloud_polling",
+  "config_flow": true
   }
