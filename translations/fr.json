@@ -1,0 +1,4 @@
+{
+    "component.ha_tpollens_fr.sensor.pollens_fr": "Indice pollinique France",
+    "entity.sensor.pollens_fr.name": "Indice pollens"
+}
