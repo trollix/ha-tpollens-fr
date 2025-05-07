@@ -1,10 +1,10 @@
 # HA TPollens FR
 
-Intégration Home Assistant pour afficher les indices polliniques français via Atmo France dans un seul capteur.
+Intégration Home Assistant pour afficher les indices polliniques français via Atmo France dans un seul capteur par commune.
 
 ## Fonctionnalités
 
-- Un seul capteur `sensor.pollens_fr`
+- Un capteur par ville : `sensor.atmo_<nom_commune>`
 - Attributs contenant les indices par type de pollen pour aujourd'hui, demain, et après-demain
 
 ## Installation

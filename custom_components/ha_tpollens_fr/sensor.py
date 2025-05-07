@@ -10,18 +10,18 @@ ATTRIBUTION = "Données Atmo France via admindata.atmo-france.org"
 
 async def async_setup_entry(hass, entry, async_add_entities):
     coordinator = hass.data[DOMAIN][entry.entry_id]
-    async_add_entities([PollensFRSensor(coordinator)], True)
+    async_add_entities([AtmoPollensSensor(coordinator)], True)
 
 
-class PollensFRSensor(CoordinatorEntity, SensorEntity):
+class AtmoPollensSensor(CoordinatorEntity, SensorEntity):
     _attr_has_entity_name = True
 
     def __init__(self, coordinator):
         super().__init__(coordinator)
 
         zone_name = coordinator.zone.get("nom", "inconnu").lower().replace(" ", "_")
-        self._attr_name = f"Pollens France ({zone_name})"
-        self._attr_unique_id = f"pollens_fr_{zone_name}"
+        self._attr_name = f"Atmo {zone_name}"
+        self._attr_unique_id = f"atmo_{zone_name}"
         self._state = STATE_UNKNOWN
         self._attributes = {}
 
