@@ -1,11 +1,12 @@
 import logging
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 import async_timeout
 import aiohttp
 from homeassistant.core import HomeAssistant
 from homeassistant.helpers.update_coordinator import DataUpdateCoordinator, UpdateFailed
 from homeassistant.config_entries import ConfigEntry
+from homeassistant.util.dt import now
 
 from .const import DOMAIN, LOGIN_URL, POLLENS_URL, DEFAULT_ZONE
 
@@ -14,21 +15,23 @@ _LOGGER = logging.getLogger(__name__)
 
 class PollensCoordinator(DataUpdateCoordinator):
     def __init__(self, hass: HomeAssistant, entry: ConfigEntry | None):
+        self.username = entry.data["username"]
+        self.password = entry.data["password"]
+        self.zone = entry.data.get("zone", DEFAULT_ZONE)
+
+        def next_15h():
+            """Retourne le prochain datetime à 15h00 (aujourd’hui ou demain)."""
+            today_15h = now().replace(hour=15, minute=0, second=0, microsecond=0)
+            return today_15h if now() < today_15h else today_15h + timedelta(days=1)
+
         super().__init__(
             hass,
             _LOGGER,
             name="Pollens France",
-            update_interval=timedelta(hours=24),
+            update_interval=timedelta(days=1),
+            update_method=self._async_update_data,
+            next_interval=next_15h(),
         )
-
-        if entry is not None:
-            self.username = entry.data["username"]
-            self.password = entry.data["password"]
-            self.zone = entry.data.get("code_zone", DEFAULT_ZONE)
-        else:
-            self.username = DEFAULT_ZONE.get("username")
-            self.password = DEFAULT_ZONE.get("password")
-            self.zone = DEFAULT_ZONE
 
     async def _async_update_data(self):
         try:

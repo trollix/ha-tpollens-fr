@@ -1,7 +1,7 @@
 {
   "domain": "ha_tpollens_fr",
   "name": "TPollens FR",
-  "version": "0.1.14",
+  "version": "0.1.15",
   "documentation": "https://github.com/trollix/ha-tpollens-fr",
   "requirements": [],
   "dependencies": [],
