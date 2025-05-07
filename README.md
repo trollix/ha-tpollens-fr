@@ -4,7 +4,7 @@ Intégration Home Assistant pour afficher les indices polliniques français via 
 
 ## Fonctionnalités
 
-- Un capteur par ville : `sensor.atmo_<nom_commune>`
+- Un capteur par ville : `sensor.pollens_fr_<nom_commune>`
 - Attributs contenant les indices par type de pollen pour aujourd'hui, demain, et après-demain
 
 ## Installation
