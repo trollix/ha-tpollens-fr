@@ -20,7 +20,7 @@ class PollensFRSensor(CoordinatorEntity, SensorEntity):
         super().__init__(coordinator)
 
         zone_name = coordinator.zone.get("nom", "inconnu").lower().replace(" ", "_")
-        self._attr_name = f"Pollens France ({zone_name})"
+        self._attr_name = f"pollens_fr_{zone_name}"
         self._attr_entity_id = f"sensor.pollens_fr_{zone_name}"
         self._attr_unique_id = f"pollens_fr_{zone_name}"
         self._state = STATE_UNKNOWN
