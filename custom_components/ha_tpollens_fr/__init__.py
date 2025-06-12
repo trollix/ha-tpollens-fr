@@ -15,13 +15,11 @@ async def async_setup_entry(hass: HomeAssistant, entry: ConfigEntry):
 
     hass.data.setdefault(DOMAIN, {})[entry.entry_id] = coordinator
 
-    # Assure-toi que la plateforme est bien "sensor"
-    hass.async_create_task(
-        hass.config_entries.async_forward_entry_setup(entry, "sensor")
-    )
+    # ← nouvelle API : liste de plateformes
+    await hass.config_entries.async_forward_entry_setups(entry, ["sensor"])
     return True
 
 async def async_unload_entry(hass: HomeAssistant, entry: ConfigEntry):
-    await hass.config_entries.async_forward_entry_unload(entry, "sensor")
+    await hass.config_entries.async_unload_platforms(entry, ["sensor"])
     hass.data[DOMAIN].pop(entry.entry_id)
     return True
